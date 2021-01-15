@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import getData from "../api/getData";
+import getJSONFromAPI from "../api/getJSONFromAPI";
 
 interface HackerNewsData {
     by: string;
@@ -20,10 +19,11 @@ function ApiViewer() {
     );
 
     useEffect(() => {
-        getData(
+        getJSONFromAPI(
             "https://hacker-news.firebaseio.com/v0/user/jl.json?print=pretty",
             setResponseData
         );
+        console.log(responseData && JSON.stringify(responseData, null, 4));
     }, []);
 
     return <div>{responseData && JSON.stringify(responseData, null, 4)}</div>;
