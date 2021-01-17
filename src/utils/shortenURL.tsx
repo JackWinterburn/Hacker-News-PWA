@@ -5,7 +5,18 @@ export const shortenURL = (url: string) => {
     return "No url";
   }
   let sliceIdx = url.indexOf("/", "https://".length);
-  let shortenedURL = url.substr(0, sliceIdx);
+  if (sliceIdx === -1) {
+    return (
+      <div>
+        {url}
+        <ExternalLinkIcon mx="2px" />
+      </div>
+    );
+  }
+  let shortenedURL = url.substr(
+    "https://".length,
+    sliceIdx - "https://".length
+  );
   return (
     <div>
       {shortenedURL}

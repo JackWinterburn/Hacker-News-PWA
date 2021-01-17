@@ -10,7 +10,6 @@ function ApiViewer() {
     getTopStories(setStoryData);
   }, []);
 
-  console.log(storyData);
   return (
     <div>
       <HackerNewsStory stories={storyData} />
