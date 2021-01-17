@@ -1,14 +1,16 @@
 import React from "react";
 import ApiViewer from "./components/ApiViewer";
-import { ChakraProvider } from "@chakra-ui/react";
-import DarkModeSwitch from "./components/DarkModeSwitch";
+import { ChakraProvider, Box } from "@chakra-ui/react";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
   return (
     <ChakraProvider>
-      <DarkModeSwitch />
-      <ApiViewer />
+      <Box>
+        <Header />
+        <ApiViewer />
+      </Box>
     </ChakraProvider>
   );
 }

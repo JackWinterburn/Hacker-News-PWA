@@ -6,7 +6,7 @@ const getTopStories = async (setState: any) => {
   let res = await axios.get(
     "https://hacker-news.firebaseio.com/v0/topstories.json"
   );
-  const data = res.data.slice(0, 20);
+  const data = res.data.slice(0, 30);
 
   // Convert the IDs to valid URLs
   let storyURLs = data.map(

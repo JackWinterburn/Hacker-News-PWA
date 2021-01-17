@@ -4,7 +4,13 @@ import { shortenURL } from "../utils/shortenURL";
 function HackerNewsStory({ stories }: { stories: [] }) {
   return (
     <div>
-      <Table variant="simple">
+      <Table
+        variant="simple"
+        style={{
+          border: "1px solid rgba(49, 151, 149, 0.3)",
+          marginTop: "20px",
+        }}
+      >
         <Thead>
           <Tr>
             <Th>Title</Th>
