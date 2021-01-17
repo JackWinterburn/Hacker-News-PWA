@@ -1,5 +1,4 @@
 import { Table, Thead, Tbody, Tr, Th, Td, Link } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { shortenURL } from "../utils/shortenURL";
 
 function HackerNewsStory({ stories }: { stories: [] }) {
