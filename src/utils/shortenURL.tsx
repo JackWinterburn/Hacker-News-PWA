@@ -1,26 +1,30 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Tooltip } from "@chakra-ui/react";
 
 export const shortenURL = (url: string) => {
+  let leftSliceIdx = url.startsWith("https://")
+    ? "https://".length
+    : "http://".length;
+
   if (url === undefined) {
-    return "No url";
+    return (
+      <Tooltip hasArrow label="This post does not have a link attached">
+        "No url"
+      </Tooltip>
+    );
   }
   let sliceIdx = url.indexOf("/", "https://".length);
   if (sliceIdx === -1) {
+    let shortenedURL = url.slice(leftSliceIdx);
     return (
-      <div>
-        {url}
-        <ExternalLinkIcon mx="2px" />
-      </div>
+      <Tooltip hasArrow label={url}>
+        {shortenedURL}
+      </Tooltip>
     );
   }
-  let shortenedURL = url.substr(
-    "https://".length,
-    sliceIdx - "https://".length
-  );
+  let shortenedURL = url.substr(leftSliceIdx, sliceIdx - "https://".length);
   return (
-    <div>
+    <Tooltip hasArrow label={url}>
       {shortenedURL}
-      <ExternalLinkIcon mx="2px" />
-    </div>
+    </Tooltip>
   );
 };
