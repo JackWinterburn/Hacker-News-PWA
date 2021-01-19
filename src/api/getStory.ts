@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const getStory = async (storyUrls: string[], setState: any) => {
-  axios.all([
-    storyUrls.forEach((url) => {
-      axios.get(url).then((res) => {
-        setState((prevState: any) => prevState.concat([res.data]));
-      });
-    }),
-  ]);
+const getStory = async (
+  id: string,
+  setState: React.Dispatch<React.SetStateAction<any>>
+) => {
+  axios
+    .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+    .then((res) => {
+      setState(res.data);
+      return new Promise((res) => res);
+    });
 };
 
 export default getStory;

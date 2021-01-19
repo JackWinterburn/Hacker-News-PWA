@@ -1,5 +1,5 @@
 import axios from "axios";
-import getStory from "./getStory";
+import getStories from "./getStories";
 
 const getTopStories = async (setState: any) => {
   // Grab the array of top 500 story IDs from HN API
@@ -13,7 +13,7 @@ const getTopStories = async (setState: any) => {
     (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`
   );
 
-  getStory(storyURLs, setState);
+  getStories(storyURLs, setState);
 };
 
 export default getTopStories;
